@@ -5,6 +5,10 @@ pipeline{
     agent any
     //agent { label 'Demo' }
 
+    tools{
+        jdk 'JDK17'
+    }
+
     parameters{
 
         choice(name: 'action', choices: 'create\ndelete', description: 'Choose create/Destroy')
