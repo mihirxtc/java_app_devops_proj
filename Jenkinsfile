@@ -49,10 +49,9 @@ pipeline{
         stage('Static code analysis: Sonarqube'){
          when { expression {  params.action == 'create' } }
             steps{
-               script{
-                   
-                   def SonarQubecredentialsId = 'sonarqube-api'
-                   statiCodeAnalysis(SonarQubecredentialsId)
+               script{  
+                    withSonarQubeEnv('sonar-api') {
+                        sh 'mvn clean package sonar:sonar -DskipTests'
                }
             }
        }
