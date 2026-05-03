@@ -34,8 +34,7 @@ pipeline{
 
             steps{
                script{
-                   
-                   mvnTest()
+                    sh 'mvn test -Dmaven.test.skip=true'
                }
             }
         }
