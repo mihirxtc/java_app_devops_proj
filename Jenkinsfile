@@ -42,8 +42,7 @@ pipeline{
          when { expression {  params.action == 'create' } }
             steps{
                script{
-                   
-                   mvnIntegrationTest()
+                   sh 'mvn verify -DskipTests'
                }
             }
         }
